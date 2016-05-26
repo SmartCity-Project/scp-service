@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/data/mongo 
+						http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+						http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/util 
+						http://www.springframework.org/schema/util/spring-util.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd">
+		
+    <context:property-placeholder location="classpath:application.properties"/>
+	
+  	<mongo:repositories base-package="com.smartcity.business.repositories.impl" />
+  	
+  	<bean id="sequenceRepoImpl" class="com.smartcity.business.repositories.impl.SequenceRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="reportDocumentRepoImpl" class="com.smartcity.business.repositories.impl.ReportDocumentRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="aggregatedReportsRepoImpl" class="com.smartcity.business.repositories.impl.AggregatedReportsRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="contactRepoImpl" class="com.smartcity.business.repositories.impl.ContactRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="voteRepoImpl" class="com.smartcity.business.repositories.impl.VoteRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="aggregatedVotesRepoImpl" class="com.smartcity.business.repositories.impl.AggregatedVotesRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+   	<bean id="persistentTokenRepoImpl" class="com.smartcity.business.repositories.impl.PersistentTokenRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="eventRepoImpl" class="com.smartcity.business.repositories.impl.EventRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="locationRepoImpl" class="com.smartcity.business.repositories.impl.LocationRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="commentRepoImpl" class="com.smartcity.business.repositories.impl.CommentRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="aggregatedCommentsRepoImpl" class="com.smartcity.business.repositories.impl.AggregatedCommentsRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="tagRepoImpl" class="com.smartcity.business.repositories.impl.TagRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="aggregatedTagsRepoImpl" class="com.smartcity.business.repositories.impl.AggregatedTagsRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="categoryRepoImpl" class="com.smartcity.business.repositories.impl.CategoryRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="petitionRepoImpl" class="com.smartcity.business.repositories.impl.PetitionRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="signatureRepoImpl" class="com.smartcity.business.repositories.impl.SignatureRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="aggregatedSignaturesRepoImpl" class="com.smartcity.business.repositories.impl.AggregatedSignaturesRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="organizationRepoImpl" class="com.smartcity.business.repositories.impl.OrganizationRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="userRepoImpl" class="com.smartcity.business.repositories.impl.UserRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="roleRepoImpl" class="com.smartcity.business.repositories.impl.RoleRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="resourceRepoImpl" class="com.smartcity.business.repositories.impl.ResourceRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="permissionRepoImpl" class="com.smartcity.business.repositories.impl.PermissionRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="userStatusRepoImpl" class="com.smartcity.business.repositories.impl.UserStatusRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="approvalRepoImpl" class="com.smartcity.business.repositories.impl.ApprovalRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="oAuth2AccessTokenRepoImpl" class="com.smartcity.business.repositories.impl.OAuth2AccessTokenRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="oAuth2ClientTokenRepoImpl" class="com.smartcity.business.repositories.impl.OAuth2ClientTokenRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="oAuth2RefreshTokenRepoImpl" class="com.smartcity.business.repositories.impl.OAuth2RefreshTokenRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	<bean id="oAuth2ClientDetailsRepoImpl" class="com.smartcity.business.repositories.impl.OAuth2ClientDetailsRepoImpl">
+		<property name="mongoTemplate" ref="mongoTemplate" />
+	</bean>
+	
+	<bean id="trackingController" class="com.smartcity.business.tracking.TrackingController"/>
+	
+	<mongo:mongo 
+		id="mongo" 
+		host="${mongo.host.name}" 
+		port="${mongo.host.port}" />
+	<mongo:db-factory 
+		mongo-ref="mongo" 
+		dbname="${mongo.db.name}"
+		username="${mongo.db.username}" 
+		password="${mongo.db.password}"/>
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+		<property name="writeConcern">
+            <util:constant static-field="com.mongodb.WriteConcern.SAFE" ></util:constant>
+        </property>
+		<!-- <mongo:mapping-converter>
+			<mongo:custom-converters>
+				<mongo:converter>
+				</mongo:converter>
+			</mongo:custom-converters>
+		</mongo:mapping-converter> -->
+	</bean>
+     
+</beans>
