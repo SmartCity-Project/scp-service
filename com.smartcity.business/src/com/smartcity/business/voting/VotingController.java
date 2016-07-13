@@ -52,7 +52,7 @@ public class VotingController
 				existVote.setCanceled(false);
 				existVote.setType(v.getType());
 				voteRepoImpl.updateVote(existVote);
-				aggregateVotes = calculateVotes(existVote, hasChangedVoteType);
+				aggregateVotes = calculateVotes(existVote, false);
 			}
 			else if(hasChangedVoteType) {
 				existVote.setType(v.getType());
